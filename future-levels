@@ -1,0 +1,99 @@
+---
+
+## Developer Layer — Structural Encoding (7, 8, 9)
+
+To extend beyond human-readable encoding, Alphanumeria introduces a developer layer using structural symbols.
+
+Digits:
+7, 8, 9
+
+---
+
+## Core Rules
+
+7 → start  
+8 → separator (space / AND)  
+9 → end  
+
+---
+
+## Purpose
+
+This layer enables:
+- structured encoding
+- machine-readable parsing
+- consistent message boundaries
+- programmable extensions
+
+---
+
+## Example
+
+Plain:
+HELLO WORLD
+
+Level 1:
+H2LL4 W4RLD
+
+Developer Layer:
+7H2LL48W4RLD9
+
+---
+
+## Breakdown
+
+- 7 → start of sequence  
+- H2LL4 → HELLO  
+- 8 → separator (space)  
+- W4RLD → WORLD  
+- 9 → end of sequence  
+
+---
+
+## Identity Example (ONID)
+
+Plain:
+BERNARD FREEMAN
+
+Level 1:
+B2RN1RD FR22M1N
+
+Developer Layer:
+7B2RN1RD8FR22M1N9
+
+---
+
+## System Design
+
+Alphanumeria operates on two layers:
+
+- 1–6 → human-readable meaning  
+- 7–9 → structural / developer layer  
+
+This creates a dual system:
+- visible meaning
+- encoded structure
+
+---
+
+## Design Principles
+
+- deterministic
+- minimal
+- extensible
+- readable + programmable
+
+---
+
+## Vision
+
+The developer layer allows Alphanumeria to evolve into:
+
+- a structured identity system  
+- a lightweight communication protocol  
+- a human-machine interaction layer  
+
+---
+
+Meaning is not only preserved.  
+It becomes structured.
