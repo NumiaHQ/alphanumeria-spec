@@ -1,0 +1,140 @@
+# Developer Specification — Alphanumeria
+
+This document defines the structural rules for the developer layer of Alphanumeria.
+
+The developer layer introduces system-level encoding using digits 7, 8, and 9.
+
+---
+
+## Structural Symbols
+
+7 → start  
+8 → separator (space / AND)  
+9 → end  
+
+---
+
+## Parsing Rule
+
+A valid structured string:
+
+- must begin with 7  
+- may include 8 as separators  
+- must terminate with 9  
+
+---
+
+## Structure Format
+
+General form:
+
+7 [encoded segments separated by 8] 9
+
+---
+
+## Example
+
+Plain:
+HELLO WORLD
+
+Level 1:
+H2LL4 W4RLD
+
+Structured:
+7H2LL48W4RLD9
+
+---
+
+## Breakdown
+
+- 7 → start of sequence  
+- H2LL4 → HELLO  
+- 8 → separator  
+- W4RLD → WORLD  
+- 9 → end of sequence  
+
+---
+
+## Identity Encoding (ONID)
+
+Plain:
+BERNARD FREEMAN
+
+Level 1:
+B2RN1RD FR22M1N
+
+Structured:
+7B2RN1RD8FR22M1N9
+
+---
+
+## Validation Rules
+
+A structured string is valid if:
+
+- it begins with 7  
+- it ends with 9  
+- all separators are 8  
+- no invalid digits (outside 1–9) are used  
+- inner content follows Level 1 rules  
+
+---
+
+## Invalid Examples
+
+Missing start:
+H2LL48W4RLD9 ❌
+
+Missing end:
+7H2LL48W4RLD ❌
+
+Incorrect separator:
+7H2LL45W4RLD9 ❌
+
+---
+
+## Design Principles
+
+- deterministic  
+- minimal  
+- human-readable + machine-parseable  
+- consistent across all implementations  
+
+---
+
+## Layer Model
+
+Alphanumeria operates in two layers:
+
+- Layer 1 (1–6) → meaning  
+- Developer Layer (7–9) → structure  
+
+This enables:
+- readable encoding  
+- structured communication  
+- programmatic interpretation  
+
+---
+
+## Future Extensions
+
+The developer layer may support:
+
+- nested structures  
+- version indicators  
+- metadata flags  
+- multi-level parsing  
+
+---
+
+## Summary
+
+7 starts the structure.  
+8 separates meaning.  
+9 completes the sequence.  
+
+---
+
+Alphanumeria is not only readable.
+
+It is structured.
